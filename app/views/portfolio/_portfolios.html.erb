@@ -1,0 +1,37 @@
+<!-- PORTFOLIO -->
+<div class="grax_tm_section" id="portfolio">
+  <div class="grax_tm_portfolio">
+    <div class="container">
+      <div class="grax_tm_title_holder">
+        <h3>Selected <span>Works</span></h3>
+      </div>
+      <div class="portfolio_list">
+        <ul class="gallery_zoom my_waypoint">
+          <% if @portfolio_items.present? %>
+  <% @portfolio_items.each_with_index do |item, index| %>
+    <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="<%= (index % 3) * 0.2 %>">
+      <div class="list_inner">
+        <div class="image">
+          <%= image_tag item.image, alt: item.title, style: "opacity: inherit;" %>
+          <div class="main" data-img-url="<%= item.image %>"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="details">
+          <span><%= item.category %></span>
+          <h3><%= item.title %></h3>
+        </div>
+        <a class="grax_tm_full_link <%= item.link.include?('youtube') ? 'popup-youtube' : 'zoom' %>" 
+           href="<%= item.link %>"></a>
+      </div>
+    </li>
+  <% end %>
+  <% else %>
+  <p>No portfolio items available.</p>
+      <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /PORTFOLIO -->

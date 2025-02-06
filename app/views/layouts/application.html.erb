@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>NoumanGhouriOfficial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  <!-- Load jQuery before Importmap -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <%= javascript_importmap_tags %>
+</head>
+
+
+  <body>
+    <%= yield %>
+
+        <!-- SCRIPTS -->
+    <script src="<%= asset_path 'jquery.js' %>"></script>
+
+    <!--[if lt IE 10]>
+      <script src="<%= asset_path 'ie8.js' %>"></script>
+    <![endif]-->
+
+    <script src="<%= asset_path 'plugins.js' %>"></script>
+    <script src="<%= asset_path 'init.js' %>"></script>
+  </body>
+</html>
