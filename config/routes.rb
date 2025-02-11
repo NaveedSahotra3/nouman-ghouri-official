@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   #
   root 'home#index'
   resources :home
-
   resources :portfolio, only: [:index]
+  resources :contact, only: [:index]
+
+  get 'contact', to: 'contact#index'
+post 'contact', to: 'contact#create'
+
+
 
   
 end

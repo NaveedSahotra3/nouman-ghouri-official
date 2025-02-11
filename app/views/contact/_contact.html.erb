@@ -53,29 +53,54 @@
 				</div>
 				<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 					<div class="fields">
-						<form action="/" method="post" class="contact_form" id="contact_form">
-							<div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
-							<div class="empty_notice"><span>Please Fill Required Fields</span></div>
-							<div class="first">
-								<ul>
-									<li>
-										<input id="name" type="text" placeholder="Name">
-									</li>
-									<li>
-										<input id="email" type="text" placeholder="Email">
-									</li>
-								</ul>
-							</div>
-							<div class="last">
-								<textarea id="message" placeholder="Message"></textarea>
-							</div>
-							<div class="grax_tm_button">
-								<a id="send_message" href="#">Send Message</a>
-							</div>
+			<form action="<%= contact_path %>" method="post" class="contact_form">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-							<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
+  <div class="first">
+    <ul>
+      <li>
+        <input 
+          name="name" 
+          type="text" 
+          placeholder="Name" 
+          required 
+          minlength="2" 
+          maxlength="50" 
+          pattern="[A-Za-z\s]+" 
+          title="Name should only contain letters and spaces"
+        >
+      </li>
+      <li>
+        <input 
+          name="email" 
+          type="email" 
+          placeholder="Email" 
+          required 
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+          title="Enter a valid email address"
+        >
+      </li>
+    </ul>
+  </div>
 
-						</form>
+  <div class="last">
+    <textarea 
+      name="message" 
+      placeholder="Message" 
+      required 
+      minlength="10" 
+      maxlength="500" 
+      title="Message should be between 10 and 500 characters"
+    ></textarea>
+  </div>
+
+  <div class="grax_tm_button">
+    <button type="submit">Send Message</button>
+  </div>
+</form>
+
+
+
 					</div>
 				</div>
 			</div>
