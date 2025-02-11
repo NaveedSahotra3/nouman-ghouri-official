@@ -20,3 +20,4 @@ portfolios_items = [
 portfolios_items.each do |item|
   PortfolioItem.create(item)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
