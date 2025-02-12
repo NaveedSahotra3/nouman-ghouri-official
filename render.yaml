@@ -1,0 +1,24 @@
+databases:
+  - name: nouman_ghouri_official
+    databaseName: nouman_ghouri_official_production
+    user: nouman_ghouri_official
+    plan: free
+
+services:
+  - type: web
+    name: nouman_ghouri_official
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nouman_ghouri_official
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: NOUMAN_GHOURI_OFFICIAL_DATABASE_PASSWORD
+        sync: false # Ensure this is set in Render's environment variables
+      - key: WEB_CONCURRENCY
+        value: 2 # Sensible default
