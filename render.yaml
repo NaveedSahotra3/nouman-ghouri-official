@@ -9,7 +9,7 @@ services:
     name: nouman_ghouri_official
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "bundle install && yarn install && bundle exec rails assets:precompile"
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
