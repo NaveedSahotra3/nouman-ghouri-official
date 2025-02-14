@@ -54,3 +54,12 @@ end
 
 puts "Portfolio items seeded successfully!"
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+if Rails.env.production?
+  AdminUser.find_or_create_by!(email: 'ghourimedia@gmail.com') do |admin|
+    admin.password = 'admin123'
+    admin.password_confirmation = 'admin123'
+  end
+  puts "Production admin user seeded successfully!"
+end
