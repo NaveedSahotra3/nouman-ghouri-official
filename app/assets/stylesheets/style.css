@@ -521,6 +521,23 @@ h6 { font-size: 16px; }
 	color: #fff;
 	margin-bottom: 11px;
 }
+@media (max-width: 767px) {
+    .fn_animation {
+        display: inline-block !important; /* Ensures horizontal alignment */
+        white-space: nowrap !important;
+    }
+
+    .fn_animation .character {
+        display: inline-block !important;
+        white-space: nowrap !important;
+    }
+
+    .grax_tm_hero .details {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+}
 
 .grax_tm_hero .details[data-animation="toTop"] .fn_animation .character{top: 15px;}
 .grax_tm_hero .details[data-animation="toTop"] .fn_animation .character.opened{top: 0px;}
@@ -2373,3 +2390,5 @@ body.dark .grax_tm_settings .cursor li .svg,
 	.grax_tm_news .news_list ul{margin: 0px;}
 	.grax_tm_news .news_list ul li{width: 100%;padding-left: 0px;}
 }
+
+
